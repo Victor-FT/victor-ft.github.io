@@ -58,7 +58,7 @@
             transition: background-color 0.3s ease;
         }
         .WA_Chat_Widget .WA_FloatingButton:hover {
-            background: var(--colors-iap300);
+            background: var(--colors-iapp300);
         }
         .WA_Chat_Widget .WA_FloatingButton svg {
             width: 40px;
@@ -98,6 +98,11 @@
             transform: translateX(-50%);
         }
         .WA_Chat_Widget .WA_ChatBox {
+          width: 360px;
+          height: auto;
+          overflow: hidden;
+          border-radius: 14px;
+          box-shadow: 0 5px 25px 0px rgba(255, 255, 255, 0.1);
           opacity: 0;
           transform: translateY(50px);
           transition: opacity 0.3s ease, transform 0.3s ease;
@@ -106,6 +111,7 @@
         .WA_Chat_Widget .WA_ChatBox.show {
           opacity: 1;
           transform: translateY(0);
+          transition: opacity 0.3s ease, transform 0.3s ease;
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Header {
             width: auto;
