@@ -41,6 +41,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: "Poppins", sans-serif;
+            z-index: 1000;
         }
         .WA_Chat_Widget .WA_FloatingButton {
             position: fixed;
@@ -51,9 +52,13 @@
             align-items: center;
             box-shadow: 0 4px 10px 0px rgba(0, 0, 0, 0.185);
             border-radius: 50%;
-            background: var(--darkColors-gray800);
+            background: var(--colors-iapp500);
             cursor: pointer;
             z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+        .WA_Chat_Widget .WA_FloatingButton:hover {
+            background: var(--colors-iap3500);
         }
         .WA_Chat_Widget .WA_FloatingButton svg {
             width: 40px;
@@ -250,7 +255,7 @@
                 </div>
             </div>
             <div class="WA_ChatBox_Footer">
-                <a class="btn btn-whatsapp" href="https://wa.me/553175769447" target="_blank">Iniciar Chat</a>
+                <a class="btn btn-whatsapp" href="http://wa.me/553175769447" target="_blank">Iniciar Chat</a>
             </div>
         </div>
         <div class="WA_FloatingButton" onclick="toggleChatbox()">
