@@ -58,7 +58,7 @@
             transition: background-color 0.3s ease;
         }
         .WA_Chat_Widget .WA_FloatingButton:hover {
-            background: var(--colors-iap3500);
+            background: var(--colors-iap300);
         }
         .WA_Chat_Widget .WA_FloatingButton svg {
             width: 40px;
@@ -98,16 +98,14 @@
             transform: translateX(-50%);
         }
         .WA_Chat_Widget .WA_ChatBox {
-            position: fixed;
-            width: 360px;
-            height: auto;
-            overflow: hidden;
-            border-radius: 8px;
-            background-color: var(--darkColors-gray800);
-            box-shadow: 0 5px 25px 0px rgba(0, 0, 0, 0.1);
-            display: none;
-            opacity: 0;
-            transform: translateY(50px);
+          opacity: 0;
+          transform: translateY(50px);
+          transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .WA_Chat_Widget .WA_ChatBox.show {
+          opacity: 1;
+          transform: translateY(0);
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Header {
             width: auto;
@@ -173,7 +171,7 @@
             background: var(--darkColors-gray800);
             padding: 20px;
             padding-top: 10px;
-            border-radius: 8px;
+            border-radius: 14px;
             z-index: 1;
             position: relative;
         }
@@ -216,16 +214,11 @@
             color: var(--darkColors-white);
             display: block;
             text-align: center;
-            transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+            transition: background-color 0.3s ease;
         }
 
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Footer .btn.btn-whatsapp:hover {
             background: var(--colors-iapp300);
-        }
-        
-        .WA_Chat_Widget .WA_ChatBox.show {
-          opacity: 1;
-          transform: translateY(0);
         }
     </style>
 </head>
@@ -265,23 +258,25 @@
     <script>
         let isChatboxVisible = false;
         const chatbox = document.querySelector(".WA_Chat_Widget .WA_ChatBox");
+
         function hideChatbox() {
           isChatboxVisible = false;
           chatbox.classList.remove("show");
           setTimeout(() => {
             chatbox.style.display = "none";
-          }, 300); // Aguarda a animação terminar antes de ocultar
+          }, 300);
         }
+
         function toggleChatbox() {
           isChatboxVisible = !isChatboxVisible;
-          chatbox.style.display = "block"; // Mostra a caixa de chat antes da animação
+          chatbox.style.display = "block";
           if (isChatboxVisible) {
             chatbox.classList.add("show");
           } else {
             chatbox.classList.remove("show");
             setTimeout(() => {
               chatbox.style.display = "none";
-            }, 300); // Aguarda a animação terminar antes de ocultar
+            }, 300);
           }
         }
     </script>
