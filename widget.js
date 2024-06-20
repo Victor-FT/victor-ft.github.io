@@ -234,9 +234,11 @@
       }
       
       .help-message {
+          z-index: 1;
           height: 45px;
           display: none;
           position: fixed;
+          align-items: center;
           bottom: 20px;
           right: 80px;
           background: var(--colors-iapp500);
@@ -360,7 +362,7 @@
         console.log('RUN', countChatVisible)
       if(countChatVisible === 0) {
         const helpMessage = document.querySelector('.help-message');
-        helpMessage.style.display = 'block';
+        helpMessage.style.display = 'flex';
       }
     }, 5000);
 
