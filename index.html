@@ -276,14 +276,16 @@
 
         function toggleChatbox() {
           isChatboxVisible = !isChatboxVisible;
-          chatbox.style.display = "block";
           if (isChatboxVisible) {
-            chatbox.classList.add("show");
+            chatbox.classList.add("show"); // Adiciona a classe .show antes de exibir
+            setTimeout(() => {
+              chatbox.style.display = "block"; // Exibe a caixa de chat após a animação
+            }, 10); // Pequeno atraso para permitir a animação
           } else {
             chatbox.classList.remove("show");
             setTimeout(() => {
               chatbox.style.display = "none";
-            }, 300);
+            }, 300); // Aguarda a animação terminar antes de ocultar
           }
         }
     </script>
