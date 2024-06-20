@@ -359,7 +359,6 @@
     }
 
     setTimeout(() => {
-        console.log('RUN', countChatVisible)
       if(countChatVisible === 0) {
         const helpMessage = document.querySelector('.help-message');
         helpMessage.style.display = 'flex';
