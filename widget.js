@@ -292,42 +292,44 @@
 
     // HTML Structure
     const widgetHTML = `
-      <div class="WA_Chat_Widget" data-position="bottom-right">
-          <div class="WA_ChatBox">
-              <div class="WA_ChatBox_Header">
-                  <div class="avatarBox">
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/IAppLogo.png" alt="Chat Avatar">
-                  </div>
-                  <div class="infoBox">
-                      <h4 class="name">iApper</h4>
-                      <span class="answer_time">Geralmente response na hora.</span>
-                  </div>
-                  <button class="WA_Close" onclick="hideChatbox()"><svg xmlns="http://www.w3.org/2000/svg" height="1em"
-                          viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                          <path
-                              d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
-                      </svg></button>
-              </div>
-              <div class="WA_ChatBox_Body">
-                  <div class="message">
-                      <h4 class="username">iApper</h4>
-                      <div class="message_content">
-                          <p>Olá! Como posso te ajudar?</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="WA_ChatBox_Footer">
-                  <a class="btn btn-whatsapp" href="http://wa.me/553175769447" target="_blank">Iniciar Chat</a>
-              </div>
-          </div>
-          <div class="WA_FloatingButton" onclick="toggleChatbox()">
-            <img width="30" height="30" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/IAppLogo.png" alt="Chat Avatar">
-          </div>
-      </div>
-      <div class="help-message">
-          <p>
-          Precisa de ajuda?
-          </p>
+    <div>
+        <div class="WA_Chat_Widget" data-position="bottom-right">
+            <div class="WA_ChatBox">
+                <div class="WA_ChatBox_Header">
+                    <div class="avatarBox">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/IAppLogo.png" alt="Chat Avatar">
+                    </div>
+                    <div class="infoBox">
+                        <h4 class="name">iApper</h4>
+                        <span class="answer_time">Geralmente response na hora.</span>
+                    </div>
+                    <button class="WA_Close" onclick="hideChatbox()"><svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                            viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path
+                                d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+                        </svg></button>
+                </div>
+                <div class="WA_ChatBox_Body">
+                    <div class="message">
+                        <h4 class="username">iApper</h4>
+                        <div class="message_content">
+                            <p>Olá! Como posso te ajudar?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="WA_ChatBox_Footer">
+                    <a class="btn btn-whatsapp" href="http://wa.me/553175769447" target="_blank">Iniciar Chat</a>
+                </div>
+            </div>
+            <div class="WA_FloatingButton" onclick="toggleChatbox()">
+                <img width="30" height="30" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/IAppLogo.png" alt="Chat Avatar">
+            </div>
+        </div>
+        <div class="help-message">
+            <p>
+            Precisa de ajuda?
+            </p>
+        </div>
       </div>
     `;
     document.body.insertAdjacentHTML('beforeend', widgetHTML);
