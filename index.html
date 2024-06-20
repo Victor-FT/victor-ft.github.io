@@ -211,7 +211,7 @@
             color: var(--darkColors-white);
             display: block;
             text-align: center;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
         }
 
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Footer .btn.btn-whatsapp:hover {
@@ -219,10 +219,9 @@
         }
         
         .WA_Chat_Widget .WA_ChatBox.show {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
+          opacity: 1;
+          transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -251,7 +250,7 @@
                 </div>
             </div>
             <div class="WA_ChatBox_Footer">
-                <a class="btn btn-whatsapp" href="http://wa.me/553175769447" target="_blank">Iniciar Chat</a>
+                <a class="btn btn-whatsapp" href="https://wa.me/553175769447" target="_blank">Iniciar Chat</a>
             </div>
         </div>
         <div class="WA_FloatingButton" onclick="toggleChatbox()">
