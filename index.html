@@ -98,13 +98,15 @@
             height: auto;
             overflow: hidden;
             border-radius: 8px;
-            background-color: #fff;
+            background-color: var(--darkColors-gray800);
             box-shadow: 0 5px 25px 0px rgba(0, 0, 0, 0.1);
             display: none;
+            opacity: 0;
+            transform: translateY(50px);
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Header {
             width: auto;
-            background: #095e54;
+            background: var(--colors-iapp500);
             padding: 20px;
             display: flex;
             justify-content: flex-start;
@@ -124,16 +126,16 @@
             object-fit: cover;
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Header .infoBox .name {
-            color: #fff;
+            color: var(--darkColors-white);
             font-weight: 600;
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Header .infoBox .answer_time {
-            color: #e4e4e4;
+            color: var(--colors-iapp100);
             font-size: 14px;
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Header .WA_Close {
             background: transparent;
-            color: #fff;
+            color: var(--darkColors-white);
             border: none;
             outline: none;
             font-size: 20px;
@@ -143,11 +145,11 @@
             cursor: pointer;
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Header .WA_Close svg {
-            fill: #ffff;
+          fill: var(--darkColors-white);
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Body {
             padding: 20px;
-            background: #e6ddd4;
+            background: var(--darkColors-gray700);
             position: relative;
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Body::before {
@@ -163,7 +165,7 @@
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Body .message {
             max-width: 280px;
-            background: #fff;
+            background: var(--darkColors-gray800);
             padding: 20px;
             padding-top: 10px;
             border-radius: 8px;
@@ -175,23 +177,23 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            background: #fff;
+            background: var(--darkColors-gray800);
             left: -10px;
             top: 0px;
             border-radius: 3px;
             clip-path: polygon(100% 0, 0 0, 100% 100%);
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Body .message .username {
-            color: darkgray;
+            color: var(--colors-iapp300);
             font-weight: 500;
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Body .message .message_content {
             font-size: 14px;
-            color: #000;
+            color: var(--darkColors-white);
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Footer {
             padding: 20px;
-            background-color: #fff;
+            background-color: var(--darkColors-gray800);
             width: 100%;
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Footer .btn {
@@ -206,10 +208,21 @@
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Footer .btn.btn-whatsapp {
             background: var(--colors-iapp500);
-            color: #fff;
+            color: var(--darkColors-white);
             display: block;
             text-align: center;
+            transition: background-color 0.3s ease;
         }
+
+        .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Footer .btn.btn-whatsapp:hover {
+            background: var(--colors-iapp300);
+        }
+        
+        .WA_Chat_Widget .WA_ChatBox.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
     </style>
 </head>
 <body>
@@ -242,19 +255,30 @@
             </div>
         </div>
         <div class="WA_FloatingButton" onclick="toggleChatbox()">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/IAppLogo.png" alt="Chat Avatar">
+          <img width="30" height="30" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/IAppLogo.png" alt="Chat Avatar">
         </div>
     </div>
     <script>
         let isChatboxVisible = false;
         const chatbox = document.querySelector(".WA_Chat_Widget .WA_ChatBox");
         function hideChatbox() {
-            isChatboxVisible = false;
+          isChatboxVisible = false;
+          chatbox.classList.remove("show");
+          setTimeout(() => {
             chatbox.style.display = "none";
+          }, 300); // Aguarda a animação terminar antes de ocultar
         }
         function toggleChatbox() {
-            isChatboxVisible = !isChatboxVisible;
-            chatbox.style.display = isChatboxVisible ? "block" : "none";
+          isChatboxVisible = !isChatboxVisible;
+          chatbox.style.display = "block"; // Mostra a caixa de chat antes da animação
+          if (isChatboxVisible) {
+            chatbox.classList.add("show");
+          } else {
+            chatbox.classList.remove("show");
+            setTimeout(() => {
+              chatbox.style.display = "none";
+            }, 300); // Aguarda a animação terminar antes de ocultar
+          }
         }
     </script>
 </body>
