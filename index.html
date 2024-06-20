@@ -41,6 +41,7 @@
             box-sizing: border-box;
             font-family: "Poppins", sans-serif;
             z-index: 1000;
+            pointer-events: none;
         }
         .WA_Chat_Widget .WA_FloatingButton {
             position: fixed;
@@ -55,6 +56,7 @@
             cursor: pointer;
             z-index: 1000;
             transition: background-color 0.3s ease;
+            pointer-events: all;
         }
         .WA_Chat_Widget .WA_FloatingButton:hover {
             background: var(--colors-iapp300);
@@ -158,6 +160,7 @@
             top: 10px;
             right: 10px;
             cursor: pointer;
+            pointer-events: all;
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Header .WA_Close svg {
           fill: var(--darkColors-white);
@@ -220,6 +223,7 @@
             font-size: 16px;
             cursor: pointer;
             text-decoration: none;
+            pointer-events: all;
         }
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Footer .btn.btn-whatsapp {
             background: var(--colors-iapp500);
@@ -277,14 +281,6 @@
         
         
         @media screen and (max-width: 400px) {
-            /* .WA_Chat_Widget {
-                bottom: 0;
-                top: 50%;
-                right: 0;
-                transform: translateY(-50%);
-                align-items: center;
-            } */
-
             .WA_ChatBox {
                 width: 90%;
                 max-width: 90%;
@@ -339,6 +335,7 @@
     </div>
     <script>
         let isChatboxVisible = false;
+        let countChatVisible = 0;
         const chatbox = document.querySelector(".WA_Chat_Widget .WA_ChatBox");
 
         function hideChatbox() {
@@ -349,6 +346,7 @@
         function toggleChatbox() {
           isChatboxVisible = !isChatboxVisible;
           if (isChatboxVisible) {
+            countChatVisible++;
             chatbox.classList.add("show"); // Adiciona a classe .show antes de exibir    
             const helpMessage = document.querySelector('.help-message'); 
             helpMessage.style.display = 'none'
@@ -358,8 +356,10 @@
         }
         
         setTimeout(() => {
-          const helpMessage = document.querySelector('.help-message');
-          helpMessage.style.display = 'block';
+          if(countChatVisible === 0) {
+            const helpMessage = document.querySelector('.help-message');
+            helpMessage.style.display = 'block';
+          }
         }, 5000);
     </script>
 </body>
