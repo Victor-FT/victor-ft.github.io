@@ -234,10 +234,11 @@
         }
         
         .help-message {
+            height: 45px;
             display: none;
             position: fixed;
-            bottom: 80px;
-            right: 30px;
+            bottom: 20px;
+            right: 80px;
             background: var(--colors-iapp500);
             font-family: "Poppins", sans-serif;
             color: white;
@@ -265,11 +266,11 @@
         
         @keyframes slide-up {
             0% {
-                transform: translateY(50px);
+                transform: translateX(50px);
                 opacity: 0;
             }
             100% {
-                transform: translateY(0);
+                transform: translateX(0);
                 opacity: 1;
             }
         }
@@ -359,7 +360,7 @@
         setTimeout(() => {
           const helpMessage = document.querySelector('.help-message');
           helpMessage.style.display = 'block';
-        }, 1000);
+        }, 5000);
     </script>
 </body>
 </html>
