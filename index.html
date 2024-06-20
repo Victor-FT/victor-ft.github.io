@@ -233,6 +233,47 @@
             background: var(--colors-iapp300);
         }
         
+        .help-message {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 30px;
+            background: var(--colors-iapp500);
+            font-family: "Poppins", sans-serif;
+            color: white;
+            padding: 0px 10px;
+            font-size: 14px;
+            color: var(--darkColors-white);
+            border-radius: 20px;
+            border-top-right-radius: 0px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.185);
+            animation: slide-up 0.5s ease forwards;
+        }
+        
+        .help-message::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--colors-iapp500);
+            right: -10px;
+            top: 0px;
+            border-radius: 3px;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+
+        
+        @keyframes slide-up {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
         
         @media screen and (max-width: 400px) {
             /* .WA_Chat_Widget {
@@ -266,7 +307,7 @@
                 </div>
                 <div class="infoBox">
                     <h4 class="name">iApper</h4>
-                    <span class="answer_time">Geralmente responde na hora.</span>
+                    <span class="answer_time">Geralmente response na hora.</span>
                 </div>
                 <button class="WA_Close" onclick="hideChatbox()"><svg xmlns="http://www.w3.org/2000/svg" height="1em"
                         viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -290,6 +331,11 @@
           <img width="30" height="30" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/IAppLogo.png" alt="Chat Avatar">
         </div>
     </div>
+    <div class="help-message">
+        <p>
+        Precisa de ajuda?
+        </p>
+    </div>
     <script>
         let isChatboxVisible = false;
         const chatbox = document.querySelector(".WA_Chat_Widget .WA_ChatBox");
@@ -302,11 +348,18 @@
         function toggleChatbox() {
           isChatboxVisible = !isChatboxVisible;
           if (isChatboxVisible) {
-            chatbox.classList.add("show"); // Adiciona a classe .show antes de exibir     
+            chatbox.classList.add("show"); // Adiciona a classe .show antes de exibir    
+            const helpMessage = document.querySelector('.help-message'); 
+            helpMessage.style.display = 'none'
           } else {
             chatbox.classList.remove("show");
           }
         }
+        
+        setTimeout(() => {
+          const helpMessage = document.querySelector('.help-message');
+          helpMessage.style.display = 'block';
+        }, 1000);
     </script>
 </body>
 </html>
