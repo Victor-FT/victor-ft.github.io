@@ -231,6 +231,36 @@
         .WA_Chat_Widget .WA_ChatBox .WA_ChatBox_Footer .btn.btn-whatsapp:hover {
             background: var(--colors-iapp300);
         }
+        
+        @media (max-width: 480px) {
+          .WA_Chat_Widget .WA_ChatBox {
+            width: 90%;
+            left: 50%;
+            transform: translateX(-50%) translateY(25px);
+          }
+
+          .WA_Chat_Widget .WA_ChatBox.show {
+            transform: translateX(-50%) translateY(0);
+          }
+
+          .WA_Chat_Widget[data-position^="top-"] .WA_ChatBox,
+          .WA_Chat_Widget[data-position^="bottom-"] .WA_ChatBox,
+          .WA_Chat_Widget[data-position$="-left"] .WA_ChatBox,
+          .WA_Chat_Widget[data-position$="-right"] .WA_ChatBox {
+            left: 50%;
+            right: auto;
+            top: auto;
+            bottom: auto;
+            transform: translateX(-50%) translateY(25px);
+          }
+
+          .WA_Chat_Widget[data-position^="top-"] .WA_ChatBox.show,
+          .WA_Chat_Widget[data-position^="bottom-"] .WA_ChatBox.show,
+          .WA_Chat_Widget[data-position$="-left"] .WA_ChatBox.show,
+          .WA_Chat_Widget[data-position$="-right"] .WA_ChatBox.show {
+            transform: translateX(-50%) translateY(0);
+          }
+        }
     </style>
 </head>
 <body>
